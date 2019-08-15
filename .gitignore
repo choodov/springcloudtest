@@ -1,6 +1,5 @@
 .idea\
 .idea
-springcloud.iml
+*.iml
 target\
 target
-config-server.iml
