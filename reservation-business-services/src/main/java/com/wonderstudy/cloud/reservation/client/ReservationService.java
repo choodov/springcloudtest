@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-/**
- * Created by frankmoley on 5/23/17.
- */
 @FeignClient("RESERVATIONSERVICES")
 public interface ReservationService {
     @RequestMapping(value = "/reservations", method = RequestMethod.GET)
