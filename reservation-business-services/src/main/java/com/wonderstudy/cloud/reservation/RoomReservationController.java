@@ -1,14 +1,11 @@
 package com.wonderstudy.cloud.reservation;
 
+import com.wonderstudy.cloud.reservation.client.RoomService;
 import com.wonderstudy.cloud.reservation.domain.Room;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -16,15 +13,11 @@ import java.util.List;
 public class RoomReservationController {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private RoomService roomService;
 
     @RequestMapping(value = "/rooms", method = RequestMethod.GET)
     public List<Room> getAllRooms() {
-        ResponseEntity<List<Room>> roomsResponse = this.restTemplate.exchange(
-                "http://ROOMSERVICES/rooms", HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<Room>>() {
-                });
-        return roomsResponse.getBody();
+        return roomService.findAll(null);
     }
 
 }
