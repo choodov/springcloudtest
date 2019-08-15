@@ -1,6 +1,7 @@
 package com.wonderstudy.cloud.reservation.domain;
 
 public class Room {
+    
     private long id;
     private String name;
     private String roomNumber;
